@@ -27,7 +27,7 @@ class IndefinitePagerIndicator @JvmOverloads constructor(
         private const val DEFAULT_FADING_DOT_COUNT = 1
         private const val DEFAULT_DOT_RADIUS_DP = 4
         private const val DEFAULT_SELECTED_DOT_RADIUS_DP = 5.5f
-        // Measured outside of first dot to outside of next dot: O<->O
+
         private const val DEFAULT_DOT_SEPARATION_DISTANCE_DP = 10
 
         private fun dpToPx(dp: Float, resources: Resources): Int =
@@ -281,8 +281,8 @@ class IndefinitePagerIndicator @JvmOverloads constructor(
     }
 
     private fun getPagerItemCount(): Int = when {
-        recyclerView != null -> recyclerView?.adapter?.itemCount!!
-        viewPager != null -> viewPager?.adapter?.count!!
+        recyclerView != null -> recyclerView?.adapter?.itemCount ?: 0
+        viewPager != null -> viewPager?.adapter?.count ?: 0
         else -> 0
     }
 
